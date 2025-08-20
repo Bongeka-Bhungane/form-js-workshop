@@ -11,43 +11,36 @@
     <header>
         <nav></nav>
     </header>
-
     <main id="root" class="container">
-        <section id="getName"> 
-            <p>Hello, <br>
-            What is your Name?</p>
-            <label for="userName" class="form-label m-2">Enter your name:</label><br>
-            <input id="inputUsername" name="userName" class="form-input m-4 w-50"><br>
-            <button type="button" class="btn btn-success btn-md m-3" onclick="saveName()">Save</button>
+        <section id="getName" >
+            <p>Hello,<br>
+                what is your name? <input type="text" id="inputName"></p>
+               <button id="saveBtn">Save</button>
         </section>
-
-        <div class="greeting m-4">
-        <p>Hello Brownie🙋🏼‍♀️<br>
-            Would you like to fill in a form?</p>
-    
-        <button class="btn btn-primary btn-lg m-3" onclick="showForm()">Yes</button>
-        <button class="btn btn-danger btn-sm m-3" onclick="showNo()">No</button>
-        <span id="noBtn" style="display:none;">THANK YOU, BYE!!🙋🏼‍♀️👍</span>
-        </div>
-
-    <section id="formSection">
-        <h1>Form JS Workshop</h1>
-        <form id="myForm" onsubmit="newForm.submitHandler(event)">
-            <label for="num1" class="form-label m-2">Enter a number:</label><br>
-            <input id="num1" name="num1" class="form-input m-4 w-50" oninput="newForm.checkIsNumber()"><br>
-
-            <label for="email" class="form-label m-2">Email:</label><br>
-            <input id="email" name="email" class="form-input m-4 w-50" oninput="newForm.checkIsEmail()"><br>
-
-            <span hidden id="notNumber" class="form-span m-3 bg-danger text-light">Please enter a valid number!!</span><br>
-            <span hidden id="notEmail" class="form-span m-3 bg-danger text-light">Please enter a valid email!!</span><br>
-
-            <button type="submit" class="cal-btn btn-warning m-4">Submit</button>
-            <button type="button" class="dis-btn btn-primary m-4">Display input</button>
-        </form>
-    </section>
-
-
+        <div id="HelloSection">
+    Hello <span id="username"></span>
+    <p>would you like fill in the form</form></p>
+    <button class="btn btn-primary" onclick="showForm()">Yes</button>
+        <button class="btn btn-danger   "  onclick="showNo()">No</button>
+       </div>
+        <span  id="noBtn" style="display: none;">Thank you, bye</span>
+        <section id="FormSection" style="display: none;">
+        <h1 class="text-primary">Form JS Workshop </h1>
+        <form name="myForm" id="myForm" onsubmit="newForm.submitHandler(event)">
+        <label for="num" class="form-label m-4">Enter a number:</label><br>
+        <input id="num1" name="num1" class="form-input m-4" oninput="newForm.checkIsNumber()"><br>
+        <label for="email" class="form-label m-4">Email:</label><br>
+        <input id="email" name="email" class="form-input m-4" oninput="newForm.checkIsEmail()"><br>
+        <span hidden id="notNumber" class="form-span m-4 bg-danger text-light">
+            Please enter a valid number!!
+        </span><br>
+        <span hidden id="notEmail" class="form-span m-4 bg-danger text-light">
+            Please enter a valid email!!
+        </span><br>
+        <button type="submit" class="cal-btn m-4">Submit</button>
+        <button type="button" class="dis-btn mb-4">Display input</button>
+    </form>
+</section>
     </main>
     <footer></footer>
     <script type="module" src="app.js"></script>

@@ -1,43 +1,44 @@
-import numberWork from "./numberWork.js";
-import formControl from "./formControl.js";
-
+import NumberWork from "./numberWork.js";
+import FormControl from "./FormControl.js";
+let getName = document.getElementById("getName");
+let fillform = document.getElementById("HelloSection");
+let username = document.getElementById("username");
 if (localStorage.getItem("username")) {
-    alert("username found");
+  alert("Username");
+  fillform.style.display = "block";
+  username.textContent = localStorage.getItem("username");
+  getName.style.display = "none";
 } else {
-    alert("username not found, please set it");
+  alert("No username found in localStorage.");
+  getName.style.display = "block";
 }
-
-function saveName() {
-  const data = document.getElementById("inputUsername").value;
-  localStorage.setItem("userData", data);
-  displayData();
+let saveBtn = document.getElementById("saveBtn");
+saveBtn.addEventListener("click", setname);
+function setname() {
+  const input = document.getElementById("inputName");
+  let name = input.value;
+  localStorage.setItem("username", name);
+  fillform.style.display = "block";
+  getName.style.display = "none";
+  username.textContent = localStorage.getItem("username");
 }
-function displayData() {
-  const savedData = localStorage.getItem("userData");
-  document.getElementById("savedData").innerText = savedData;
-}
-displayData();
-
 window.start = () => {
   let x = 5;
   let y = 7;
-
-  const num1 = new numberWork(5);
+  const num1 = new NumberWork(5);
   num1.displayNumber();
   num1.pozOrNeg();
-
-  const newForm = new formControl(7);
+  const newForm = new FormControl(7);
   window.newForm = newForm;
 };
-
 window.start();
-
 window.showForm = function () {
-  document.getElementById("formSection").style.display = "block"; // show form
+  document.getElementById("FormSection").style.display = "block"; // show form
   document.getElementById("noBtn").style.display = "none"; // hide goodbye
+  document.getElementById("HelloSection").style.display = "none"; // hide goodbye
 };
-
 window.showNo = function () {
   document.getElementById("noBtn").style.display = "block"; // show goodbye
-  document.getElementById("formSection").style.display = "none"; // hide form
+  document.getElementById("FormSection").style.display = "none"; // hide form
+  document.getElementById("HelloSection").style.display = "none"; // hide goodbye
 };
